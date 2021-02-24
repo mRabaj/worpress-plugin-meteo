@@ -4,28 +4,14 @@
  * @version 1.7.2
  */
 /*
-Plugin Name: meteo pikachu
+Plugin Name: meteo
 Plugin URI: http://wordpress.org/plugins/meteopikachu/
-Description: this is meteo plugin from pikachu
-Author: Kieran pikachu
+Description: this is meteo plugin
+Author:
 Version: 1.0.0
 Author URI: http://ma.tt/
 */
 
-
-// function meteo() {
-
-// 	printf('<p>hello pikachu</p>',
-// 	);
-// 	$data=file_get_contents('http://api.openweathermap.org/data/2.5/weather?q=rodez&appid=9d63106b0003583259d7d973d5addfa9&lang=fr&units=metric');
-// 	$plouf=json_decode($data);
-// 	$desc=$plouf ->weather[0]->description;
-// 	$temp=$plouf->main->temp;
-// 	//print_r($plouf);
-// 	print $desc.PHP_EOL;
-// 	print $temp.'°C';
-
-// }
 
 // Now we set that function up to execute when the admin_notices action is called.
 //add_action( 'admin_notices', 'meteo' );
@@ -39,8 +25,7 @@ Author URI: http://ma.tt/
 function wpdocs_register_my_custom_menu_page(){
     add_menu_page( 
         __( 'Custom Menu Title', 'textdomain' ),
-        'pikachu',
-        'manage_options',
+       'manage_options',
         'custompage',
         'my_custom_menu_page',
         plugins_url( 'myplugin/images/icon.png' ),
@@ -53,7 +38,7 @@ add_action( 'admin_menu', 'wpdocs_register_my_custom_menu_page' );
  * Display a custom menu page
  */
 function my_custom_menu_page(){
-	printf('<p>hello pikachu</p>',
+	printf('<p>hello</p>',
 	);
 	$city=$_POST['city'];
 	if($_POST['metric']){
@@ -88,12 +73,11 @@ function my_custom_menu_page(){
 		$plouf=json_decode($data);
 		$desc=$plouf->weather[0]->description;
 		$temp=$plouf->main->temp;
-		//print_r($plouf);
 		print $desc.PHP_EOL;
 		print $temp.'°C';  
 	}
 	
-	print "<div>Bienvenu(e) sur la météo pikachu ! </div>";
+	print "<div>Bienvenu(e) sur la météo</div>";
 	print PHP_EOL;
 	print "<form method=\"post\">
 			<div>Veuillez rentrer le nom d'une ville</div>
@@ -109,6 +93,6 @@ function my_custom_menu_page(){
 			<option value=\"1\">Français</option>
 			<option value=\"2\">English</option>
 			</select>
-			<button>Go Pikachu</button>
+			<button>Trouver</button>
 		   </form>" ;	
 }
